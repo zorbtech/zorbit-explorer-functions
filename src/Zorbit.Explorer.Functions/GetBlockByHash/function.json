@@ -1,0 +1,27 @@
+﻿{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get"
+      ],
+      "route": "block/{network}/{hash:regex([a-fA-F0-9]{{64}})}"
+    },
+    {
+      "type": "table",
+      "name": "blockTable",
+      "tableName": "blocks",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "..\\bin\\Zorbit.Explorer.Functions.dll",
+  "entryPoint": "Zorbit.Explorer.Functions.GetBlockByHash.Run"
+}

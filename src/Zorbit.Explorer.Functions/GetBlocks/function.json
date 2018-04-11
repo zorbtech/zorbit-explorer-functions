@@ -1,0 +1,27 @@
+﻿{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get"
+      ],
+      "route": "blocks/{network}/{take:int:range(1,20)}/{skip:int:min(0)}"
+    },
+    {
+      "type": "table",
+      "name": "summaryTable",
+      "tableName": "summary",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "..\\bin\\Zorbit.Explorer.Functions.dll",
+  "entryPoint": "Zorbit.Explorer.Functions.GetBlocks.Run"
+}

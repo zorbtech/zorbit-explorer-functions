@@ -1,0 +1,27 @@
+﻿{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get"
+      ],
+      "route": "height/{network}"
+    },
+    {
+      "type": "table",
+      "name": "chainTable",
+      "tableName": "chain",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "..\\bin\\Zorbit.Explorer.Functions.dll",
+  "entryPoint": "Zorbit.Explorer.Functions.GetHeight.Run"
+}
